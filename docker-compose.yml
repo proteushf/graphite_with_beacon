@@ -1,0 +1,13 @@
+graphite-and-beacon:
+  image: graphite_and_beacon
+  volumes:
+    - <path to docker-graphite-statsd/conf/opt/graphite/conf>:/opt/graphite/conf
+    - <path to docker-graphite-statsd/graphite-beacon/config.json>:/srv/alerting/etc/config.json
+    - /etc/timezone:/etc/timezone
+  ports:
+    - "8084:80"
+    - "2003-2004:2003-2004"
+    - "8125:8125/udp"
+    - "8126:8126"
+  container_name:
+    graphite-and-beacon
